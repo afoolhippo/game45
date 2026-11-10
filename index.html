@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#6f3524">
+  <title>カバチロ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="titleScreen" class="screen active" aria-labelledby="titleImage">
+      <img id="titleImage" src="title.png" alt="カバチロ" class="title-img">
+
+      <div class="title-rule">
+        <p class="rule-lead">3つのサイコロで十番勝負！</p>
+        <p>ゾロ目は高得点。ペアは、そろわなかった<br>「決め手」の目で得点が決まります。</p>
+      </div>
+
+      <button id="startBtn" class="start-btn" type="button">ゲームスタート</button>
+    </section>
+
+    <section id="gameScreen" class="screen" aria-label="ゲーム画面">
+      <header class="game-header">
+        <div class="game-logo">カバチロ</div>
+        <button id="backTitleBtn" class="mini-btn" type="button">もどる</button>
+      </header>
+
+      <div class="status-panel">
+        <div class="status-item">
+          <span class="status-label">勝負</span>
+          <span><strong id="roundNum">1</strong> / 10回</span>
+        </div>
+        <div class="status-divider"></div>
+        <div class="status-item">
+          <span class="status-label">合計</span>
+          <span><strong id="scoreNum">0</strong>点</span>
+        </div>
+      </div>
+
+      <div class="progress" id="progress" aria-label="10回の進行状況"></div>
+
+      <div class="table-area">
+        <div class="table-label">本日の勝負卓</div>
+        <div class="dice-row" aria-label="3個のサイコロ">
+          <div class="dice-wrap">
+            <div class="dice cube" id="dice1">
+              <div class="face front"><img src="hippo.png" alt="カバ"></div>
+              <div class="face back"><img src="turtle.png" alt="カメ"></div>
+              <div class="face right"><img src="orange.png" alt="オレンジ"></div>
+              <div class="face left"><img src="cucumber.png" alt="きゅうり"></div>
+              <div class="face top"><img src="eggplant.png" alt="ナス"></div>
+              <div class="face bottom"><img src="toothbrush.png" alt="歯ブラシ"></div>
+            </div>
+          </div>
+
+          <div class="dice-wrap">
+            <div class="dice cube" id="dice2">
+              <div class="face front"><img src="hippo.png" alt="カバ"></div>
+              <div class="face back"><img src="turtle.png" alt="カメ"></div>
+              <div class="face right"><img src="orange.png" alt="オレンジ"></div>
+              <div class="face left"><img src="cucumber.png" alt="きゅうり"></div>
+              <div class="face top"><img src="eggplant.png" alt="ナス"></div>
+              <div class="face bottom"><img src="toothbrush.png" alt="歯ブラシ"></div>
+            </div>
+          </div>
+
+          <div class="dice-wrap">
+            <div class="dice cube" id="dice3">
+              <div class="face front"><img src="hippo.png" alt="カバ"></div>
+              <div class="face back"><img src="turtle.png" alt="カメ"></div>
+              <div class="face right"><img src="orange.png" alt="オレンジ"></div>
+              <div class="face left"><img src="cucumber.png" alt="きゅうり"></div>
+              <div class="face top"><img src="eggplant.png" alt="ナス"></div>
+              <div class="face bottom"><img src="toothbrush.png" alt="歯ブラシ"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="judgeBox" class="judge-box" aria-live="polite">
+        <div id="roleName" class="role-name">ふってみよう</div>
+        <div id="roleDetail" class="role-detail">全10回の合計点で勝負！</div>
+        <div id="pointText" class="point-text">0点</div>
+      </div>
+
+      <button id="rollBtn" class="main-btn" type="button">ふる！</button>
+    </section>
+
+    <section id="resultScreen" class="screen" aria-label="結果画面">
+      <div class="result-heading">勝負終了</div>
+      <div class="receipt">
+        <div class="receipt-title">カバチロ 十番勝負</div>
+        <div class="receipt-rule"></div>
+        <div class="receipt-label">本日の合計</div>
+        <div class="final-score"><strong id="finalScore">0</strong><span>点</span></div>
+        <div id="resultComment" class="result-comment"></div>
+      </div>
+
+      <div class="result-buttons">
+        <button id="retryBtn" class="retry-btn" type="button">もう一回</button>
+        <div class="result-sub-buttons">
+          <button id="shareBtn" class="sub-btn" type="button">Xでシェア</button>
+          <button id="homeBtn" class="sub-btn" type="button">ホームへ</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="diceSound" src="dice.mp3" preload="auto"></audio>
+  <script src="game.js"></script>
+</body>
+</html>
